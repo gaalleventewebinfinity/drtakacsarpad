@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --background: #07245f;
+  --foreground: #ffffff;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  background-color: #07245f;
+}
+
+body {
+  background-color: #07245f;
+  /* Default (Mobile): Darker, vertical gradient */
+  background: linear-gradient(to bottom, #0b2e66 0%, #07245f 40%, #020d24 100%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* Desktop: Lighter radial gradient */
+@media (min-width: 768px) {
+  body {
+    background: radial-gradient(circle at top right, #2563eb, #1e4b8a, #07245f);
+    background-attachment: fixed;
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide {
+  animation: fadeSlideIn 0.5s ease-out forwards;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 60s linear infinite; /* Slower for smoother perception */
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
