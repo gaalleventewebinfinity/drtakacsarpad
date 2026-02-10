@@ -29,7 +29,7 @@ export default function Navbar() {
   }, [cities.length]);
 
   return (
-    <nav className="fixed top-6 left-0 right-0 mx-auto w-[95%] max-w-7xl z-50 transition-all duration-300">
+    <nav className="fixed top-6 left-0 right-0 mx-auto w-[98%] max-w-[1600px] z-50 transition-all duration-300">
       <div className="bg-[#07245f]/70 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl px-6 py-4 relative overflow-hidden group/nav">
         
         {/* Subtle gradient overlay */}
@@ -39,7 +39,7 @@ export default function Navbar() {
           
           {/* Logo - Left Aligned */}
           <div className="flex-1 md:flex-none flex items-center gap-0">
-             <a href="/" className="relative h-16 w-36">
+             <a href="/" className="relative h-20 w-48">
                <Image 
                  src="/takacslogo.png" 
                  alt="Dr. Takács Árpád Logo" 
@@ -67,17 +67,15 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex flex-1 justify-center items-center gap-8">
-            {["Rólam", "Hírek", "Galéria", "Kapcsolat"].map((item) => {
-              const href = item === "Hírek" 
-                ? "/hirek" 
-                : `/#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`;
+          <div className="hidden lg:flex flex-1 justify-center items-center gap-4">
+            {["Hírlevél", "Életút", "Programom", "Választóknak", "Támogatók", "Kapcsolat"].map((item) => {
+              const href = `/#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`;
                 
               return (
                 <a
                   key={item}
                   href={href}
-                  className="relative group py-2 text-sm font-bold uppercase tracking-wide text-gray-200 hover:text-white transition-colors duration-300"
+                  className="relative group py-2 text-xs font-semibold uppercase tracking-wider text-gray-200/90 hover:text-white transition-colors duration-300 whitespace-nowrap"
                 >
                   {item}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ffcc00] transition-all duration-300 group-hover:w-full"></span>
@@ -87,13 +85,13 @@ export default function Navbar() {
           </div>
 
           {/* Right Side - CTA / Social */}
-          <div className="hidden lg:flex items-center gap-4 flex-none">
+          <div className="hidden lg:flex items-center gap-3 flex-none">
               <a href="https://facebook.com" target="_blank" className="text-white/60 hover:text-[#ffcc00] transition-colors">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
               <a 
                   href="/#kapcsolat"
-                  className="group relative px-6 py-2.5 bg-gradient-to-r from-[#ffcc00] via-white to-[#ffcc00] bg-[length:200%_auto] animate-shine animate-glow text-[#07245f] font-black text-sm uppercase rounded-lg shadow-[0_0_20px_rgba(255,204,0,0.6)] hover:shadow-[0_0_30px_rgba(255,204,0,0.9)] transition-all transform hover:scale-105 border border-[#ffcc00]/50 overflow-hidden"
+                  className="group relative px-5 py-2 bg-gradient-to-r from-[#ffcc00] via-white to-[#ffcc00] bg-[length:200%_auto] animate-shine animate-glow text-[#07245f] font-black text-xs uppercase rounded-lg shadow-[0_0_20px_rgba(255,204,0,0.6)] hover:shadow-[0_0_30px_rgba(255,204,0,0.9)] transition-all transform hover:scale-105 border border-[#ffcc00]/50 overflow-hidden whitespace-nowrap"
               >
                   <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
                       ÚJ BÉKÉSCSABA TERV
@@ -132,10 +130,8 @@ export default function Navbar() {
               className="md:hidden overflow-hidden border-t border-white/10 mt-4"
             >
               <div className="flex flex-col gap-4 py-4">
-                {["Rólam", "Hírek", "Galéria", "Kapcsolat"].map((item) => {
-                  const href = item === "Hírek" 
-                    ? "/hirek" 
-                    : `/#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`;
+                {["Hírlevél", "Életút", "Programom", "Választóknak", "Támogatók", "Kapcsolat"].map((item) => {
+                  const href = `/#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`;
                     
                   return (
                     <a
