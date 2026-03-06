@@ -28,7 +28,19 @@ export default function Navbar() {
     return () => clearInterval(interval);
   }, [cities.length]);
 
-  const navItems = ["Életút", "Támogatók", "Választókerület", "Kapcsolat"];
+  const navItems = [
+    { label: "Életút", id: "eletut" },
+    { label: "Támogatók", id: "tamogatok" },
+    { label: "Választókerület", id: "valasztokeruletem" },
+    { label: "Kapcsolat", id: "kapcsolat" },
+  ];
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <nav className="fixed top-3 sm:top-6 left-0 right-0 mx-auto w-[96%] max-w-[1600px] z-50 transition-all duration-300">
@@ -70,19 +82,16 @@ export default function Navbar() {
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex flex-1 justify-center items-center gap-6 -translate-x-12">
-            {navItems.map((item) => {
-              const href = `/#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`;
-              return (
-                <a
-                  key={item}
-                  href={href}
-                  className="relative group py-2 text-base font-black uppercase tracking-wide text-gray-200/90 hover:text-white transition-colors duration-300 whitespace-nowrap"
-                >
-                  {item}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ffc107] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              );
-            })}
+            {navItems.map(({ label, id }) => (
+              <button
+                key={id}
+                onClick={() => scrollTo(id)}
+                className="relative group py-2 text-base font-black uppercase tracking-wide text-gray-200/90 hover:text-white transition-colors duration-300 whitespace-nowrap bg-transparent border-none cursor-pointer"
+              >
+                {label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ffc107] transition-all duration-300 group-hover:w-full"></span>
+              </button>
+            ))}
           </div>
 
           {/* Right Side - CTA / Social (desktop) */}
@@ -154,19 +163,15 @@ export default function Navbar() {
               className="lg:hidden overflow-hidden border-t border-white/10 mt-3"
             >
               <div className="flex flex-col gap-1 py-4">
-                {navItems.map((item) => {
-                  const href = `/#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`;
-                  return (
-                    <a
-                      key={item}
-                      href={href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-center py-3 text-base font-black uppercase tracking-wide text-gray-200 hover:text-[#ffc107] hover:bg-white/5 rounded-xl transition-all"
-                    >
-                      {item}
-                    </a>
-                  );
-                })}
+                {navItems.map(({ label, id }) => (
+                  <button
+                    key={id}
+                    onClick={() => { scrollTo(id); setIsMobileMenuOpen(false); }}
+                    className="text-center py-3 text-base font-black uppercase tracking-wide text-gray-200 hover:text-[#ffc107] hover:bg-white/5 rounded-xl transition-all bg-transparent border-none cursor-pointer w-full"
+                  >
+                    {label}
+                  </button>
+                ))}
                 <div className="flex justify-center pt-3 pb-1">
                   <a 
                     href="/#kapcsolat"

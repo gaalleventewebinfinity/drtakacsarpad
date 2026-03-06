@@ -15,7 +15,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="kapcsolat" className="py-24 text-white relative overflow-hidden z-10">
+    <section id="kapcsolat" className="scroll-mt-24 py-24 text-white relative overflow-hidden z-10">
       <div className="max-w-4xl mx-auto px-4 relative z-10" ref={ref}>
 
         <motion.div

@@ -36,7 +36,7 @@ export default function Valasztokerulet() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="valasztokeruletem" className="py-24 relative overflow-hidden">
+    <section id="valasztokeruletem" className="scroll-mt-24 py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
 
         {/* Fejléc */}

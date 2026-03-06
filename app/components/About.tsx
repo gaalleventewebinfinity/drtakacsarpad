@@ -27,7 +27,7 @@ function FadeIn({ children, className = "", delay = 0, direction = "up" }: {
 
 export default function About() {
   return (
-    <section id="eletut" className="py-24 relative overflow-hidden">
+    <section id="eletut" className="scroll-mt-24 py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 relative z-10 space-y-24">
 
         {/* 1. blokk: szöveg bal, kép jobb */}
