@@ -1,30 +1,90 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Fieldwork";
+  src: url("/font/fonnts.com-Fieldwork-Geo-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fieldwork";
+  src: url("/font/fonnts.com-Fieldwork-Geo-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fieldwork";
+  src: url("/font/fonnts.com-Fieldwork-Geo-Demibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fieldwork";
+  src: url("/font/fonnts.com-Fieldwork-Geo-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fieldwork";
+  src: url("/font/fonnts.com-Fieldwork-Geo-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fieldwork";
+  src: url("/font/fonnts.com-Fieldwork_Italic_Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Fieldwork";
+  src: url("/font/fonnts.com-Fieldwork_Italic_Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Fieldwork";
+  src: url("/font/fonnts.com-Fieldwork_Italic_Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
 :root {
-  --background: #07245f;
+  --background: #053787;
   --foreground: #ffffff;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Fieldwork", Arial, Helvetica, sans-serif;
+  --blue-light: #2369ad;
+  --blue-mid: #053787;
+  --blue-dark: #061c4b;
 }
 
 html {
-  background-color: #07245f;
+  background-color: #053787;
+  overflow-x: hidden;
 }
 
 body {
-  background-color: #07245f;
+  overflow-x: hidden;
+  background-color: #053787;
   /* Default (Mobile): Darker, vertical gradient */
-  background: linear-gradient(to bottom, #0b2e66 0%, #07245f 40%, #020d24 100%);
+  background: linear-gradient(to bottom, #053787 0%, #061c4b 100%);
   background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   min-height: 100vh;
 }
 
-/* Desktop: Lighter radial gradient */
+/* Desktop: Radial gradient */
 @media (min-width: 768px) {
   body {
-    background: radial-gradient(circle at top right, #2563eb, #1e4b8a, #07245f);
+    background: radial-gradient(circle at top right, #2369ad, #053787, #061c4b);
     background-attachment: fixed;
   }
 }

@@ -1,13 +1,14 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import News from "./components/News";
+import Valasztokerulet from "./components/Valasztokerulet";
+import Newsletter from "./components/Newsletter";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen selection:bg-[#ffcc00] selection:text-[#07245f]">
+    <div className="min-h-screen overflow-x-hidden selection:bg-[#ffc107] selection:text-[#053787]">
       {/* Background with halftone pattern */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-10"
         style={{
@@ -20,7 +21,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <News />
+      <Valasztokerulet />
+      <Newsletter />
       <Contact />
       <Footer />
     </div>
